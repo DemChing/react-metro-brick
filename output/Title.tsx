@@ -38,7 +38,7 @@ const Title: React.FC<IProps> = (props: IProps) => {
         name: 'Github',
         msg: [{ body: <span className='title-message'>Visit / Fork the repo</span>, }],
         msgDelay: 11000,
-        href: 'test.html',
+        href: 'https://github.com/DemChing/react-metro-brick',
     }, {
         theme: 'cobalt',
         msg: (['dark', 'orange'] as typeof BrickTheme[number][]).map(v => ({ theme: v })),
