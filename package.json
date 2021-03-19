@@ -1,14 +1,25 @@
 {
     "name": "react-metro-brick",
     "description": "Metro bricks for React",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "author": "Dem Ching <demching@gmail.com> (https://github.com/demching)",
     "license": "MIT",
-    "keywords": ["react", "metro", "windows", "brick", "grid", "tile", "reactjs", "react-component"],
+    "keywords": [
+        "react",
+        "metro",
+        "windows",
+        "brick",
+        "grid",
+        "tile",
+        "reactjs",
+        "react-component"
+    ],
     "homepage": "https://demching.github.io/react-metro-brick",
     "repository": "github:demching/react-metro-brick",
     "main": "./src/index.ts",
-    "files": ["./src"],
+    "files": [
+        "./src"
+    ],
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack --mode development --watch",
