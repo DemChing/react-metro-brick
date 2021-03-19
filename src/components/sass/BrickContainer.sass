@@ -1,0 +1,26 @@
+@import './variables'
+
+.brick-container
+    display: inline-block
+    margin: .5rem
+    color: #fff
+    font-family: Arial
+    font-size: .8rem
+    user-select: none
+
+    .brick-container-header
+        min-height: 2rem
+        display: grid
+        align-content: center
+        justify-content: left
+
+    .brick-container-layout
+        display: inline-grid
+        grid-template-columns: repeat(6, $brick-base-size)
+        grid-auto-rows: $brick-base-size
+        grid-gap: $brick-gap
+        grid-auto-flow: dense
+        vertical-align: top
+
+        .brick.brick-standalone
+            margin: 0

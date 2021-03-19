@@ -1,0 +1,212 @@
+<head>
+    <script src="./js/prism.min.js"></script>
+    <link rel="stylesheet" href="./css/prism.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id='title'>
+        <div>
+            <h1>React Metro Brick</h1>
+            <div id='title-bricks'></div>
+        </div>
+    </div>
+    <div id='documentation'>
+        <h1 id='brick'>Brick</h1>
+        <div id='themes' class='demo'>
+            <div id='theme-bricks'></div>
+            <div>
+                <h3>Themes</h3>
+                <p>There are 11 themes of bricks available:</p>
+                <pre><code class='lang-'>red  green  amber  orange  blue  cobalt
+cyan  purple  teal  dark  yellow</code></pre>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;Brick theme={theme} />
+
+// red, green, amber, orange, blue, cobalt,
+// cyan, purple, teal, dark, yellow
+&lt;Brick theme='cyan' /></code></pre>
+            </div>
+        </div>
+        <div id='sizes' class='demo'>
+            <div id='size-bricks'></div>
+            <div>
+                <h3>Sizes</h3>
+                <p>There are 4 sizes of bricks available:</p>
+                <pre><code class='lang-'>small  medium  wide  large</code></pre>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;Brick size={size} />
+
+// small, medium, wide, large
+&lt;Brick size='wide' /></code></pre>
+            </div>
+        </div>
+        <div id='icons' class='demo'>
+            <div id='icon-bricks'></div>
+            <div>
+                <h3>Icons</h3>
+                <p>An icon is displayed at the center of the brick.</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;Brick icon={icon} />
+
+// specify a string as image source
+&lt;Brick icon='your/icon/path.png' />
+
+// use JSX as icon
+&lt;Brick icon={&lt;img src='your/icon/path.png' />} /></code></pre>
+            </div>
+        </div>
+        <div id='name-badge' class='demo'>
+            <div id='name-badge-bricks'></div>
+            <div>
+                <h3>Name / Badge</h3>
+                <p>Name and Badge are located at the bottom of the brick.</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;Brick name={name} badge={badge} />
+
+// badge could be number or string
+&lt;Brick name='My App Name' badge={123} />
+
+// or make a JSX badge
+&lt;Brick name='My App Name'
+    badge={&lt;img src='your/icon/path.png' />} /></code></pre>
+            </div>
+        </div>
+        <div id='background' class='demo'>
+            <div id='background-bricks'></div>
+            <div>
+                <h3>Background</h3>
+                <p>Instead of setting a Theme, you can provide an image as background.</p>
+                <p>Unless it's a small brick, the icon will be placed in the Badge position.</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;Brick bkg={bkg} />
+
+&lt;Brick bkg='your/background/path.png' /></code></pre>
+            </div>
+        </div>
+        <div id='message' class='demo'>
+            <div id='message-bricks'></div>
+            <div>
+                <h3>Message</h3>
+                <p>You can display custom message and display duration in the brick.</p>
+                <p>This will not work for small brick.</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;Brick msg={msg[]} msgDelay={msgDelay} />
+
+// message accepts:
+// 'title', 'body', 'delay', 'theme', 'bkg'
+// where 'theme' and 'bkg' can be inherited
+&lt;Brick msg={[{
+    title: 'Title',
+    body: 'Message Body',
+    delay: 6000
+}, {
+    title: 'Title 2',
+    body: 'Message Body 2'
+}]} msgDelay={7000} /></code></pre>
+            </div>
+        </div>
+        <div class='separator'></div>
+        <h1 id='brick-container'>BrickContainer</h1>
+        <div id='basic' class='demo'>
+            <div id='basic-containers'></div>
+            <div>
+                <h3>Info</h3>
+                <p>Use BrickContainer to arrange bricks easily</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>// either specify JSON config of array of Bricks
+&lt;BrickContainer bricks={bricks} name={name} />
+
+// or directly place Bricks as children
+&lt;BrickContainer bricks={bricks} name={name}>
+    &lt;Brick />
+    &lt;Brick />
+    &lt;Brick />
+&lt;/BrickContainer>
+</code></pre>
+            </div>
+        </div>
+        <div id='layout' class='demo'>
+            <div id='layout-containers'></div>
+            <div>
+                <h3>Grid Layout</h3>
+                <p>Set custom columns in each row</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>&lt;BrickContainer size={size} columns={columns} />
+
+// size: small - 4 cols, medium - 6 cols,
+//       wide - 8 cols, large - 12 cols
+&lt;BrickContainer size='medium' />
+
+// or you can set other number
+&lt;BrickContainer columns={6} /></code></pre>
+            </div>
+        </div>
+        <div id='gap' class='demo'>
+            <div id='gap-containers'></div>
+            <div>
+                <h3>Gap</h3>
+                <p>Bricks always try to find a gap to fill. Thus, Bricks may position in different order</p>
+                <p>Use empty brick to fill the gap instead</p>
+                <h3>Usage</h3>
+                <pre><code class='lang-jsx'>// create empty bricks mannually
+// can alter 'divProps' and apply custom CSS
+&lt;BrickContainer bricks={[
+    { fill: true },
+    { fill: true },
+    {}
+]} />
+
+// or you can use Brick tag directly
+&lt;BrickContainer>
+    &lt;Brick fill />
+    &lt;Brick fill />
+    &lt;Brick />
+&lt;/BrickContainer>
+
+// use 'prepend'/'append' to fill in bulkly
+// accepts 'count', 'size'
+// 'prepend' - fill before that brick
+// 'append' - fill after that brick
+// 'prepend'/'append' don't work when using Brick tag directly
+&lt;BrickContainer bricks={[
+    { prepend: { count: 2 } },
+]} /></code></pre>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    #documentation {
+        padding: 1rem;
+    }
+
+    #documentation h1 {
+        text-align: center;
+        margin-top: 0;
+        font-size: 4rem;
+    }
+
+    .demo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .demo>div:first-child {
+        text-align: center;
+    }
+
+    .demo+.demo {
+        border-top: 1px solid;
+        margin-top: 1rem;
+    }
+
+    .separator {
+        height: 2rem;
+        width: 100%;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid;
+    }
+</style>
+<script src='./js/vendor.bundle.js'></script>
+<script src='./js/app.bundle.js'></script>

@@ -1,0 +1,7 @@
+$colors: ('red': #af2031,'green': #107c10,'amber': #cc7729,'orange': #d55408,'blue': #103f91,'cobalt': #0050ef,'cyan': #0078d4,'purple': #641790,'teal': #036c70, 'dark': #474747, 'yellow': #d6b039)
+
+$brick-base-size: 3rem
+$brick-gap: .25rem
+    
+@function calc-size($size: 2)
+    @return $size * $brick-base-size + ($size - 1) * $brick-gap

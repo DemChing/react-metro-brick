@@ -1,0 +1,133 @@
+@import './variables'
+
+.brick
+    display: inline-grid
+    position: relative
+    cursor: pointer
+    box-sizing: border-box
+    transition: .2s linear
+    padding: .25rem
+    background-color: map-get($colors, 'cyan')
+    grid-column-end: span 2
+    grid-row-end: span 2
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-origin: border-box
+    overflow: hidden
+
+    > a
+        display: inherit
+        color: currentColor
+
+    .brick-status-bar
+        display: flex
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        padding: 0.2rem 0.4rem
+        box-sizing: border-box
+        text-align: left
+        flex-direction: row-reverse
+
+        .brick-badge
+            min-width: 1rem
+
+            & .brick-name
+                padding-right: 0.25rem
+
+        .brick-name
+            flex-grow: 1
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+            text-align: left
+
+    .brick-content
+        display: grid
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        justify-items: center
+        align-items: center
+        text-align: center
+
+        .brick-status-bar + .brick-icon
+            width: 40%
+            height: 40%
+
+        .brick-icon
+            width: 50%
+            height: 50%
+
+            *
+                max-width: 100%
+                max-height: 100%
+
+    .brick-cover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        border: 2px solid transparent
+        z-index: 999
+        box-sizing: border-box
+        transition: .2s linear
+
+    &.brick-wide
+        grid-column-end: span 4
+
+    &.brick-small
+        grid-column-end: span 1
+        grid-row-end: span 1
+
+        .brick-icon
+            width: 60%
+            height: 60%
+
+        .brick-status-bar
+            display: none
+
+    &.brick-large
+        grid-column-end: span 4
+        grid-row-end: span 4
+
+    &.brick-standalone
+        width: calc-size()
+        height: calc-size()
+        margin: $brick-gap / 2
+
+        &.brick-wide
+            width: calc-size(4)
+
+        &.brick-small
+            width: calc-size(1)
+            height: calc-size(1)
+
+        &.brick-large
+            width: calc-size(4)
+            height: calc-size(4)
+
+    &.brick-fill
+        background-color: transparent
+        > *
+            display: none
+
+    @each $color, $code in $colors
+        &.brick-#{$color}
+            background-color: $code
+
+    &:hover
+        .brick-cover
+            border-color: #ccc
+            background-color: #fff2
+
+        .brick-status-bar.has-background
+            background-color: #fff3
+
+    &:active .brick-cover
+        background-color: #0002
