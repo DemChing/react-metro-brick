@@ -14,7 +14,7 @@
         "reactjs",
         "react-component"
     ],
-    "homepage": "https://demching.github.io/react-metro-brick",
+    "homepage": "https://demching.github.io/react-metro-brick/docs",
     "repository": "github:demching/react-metro-brick",
     "main": "./src/index.ts",
     "files": [

@@ -1,7 +1,7 @@
 # react-metro-brick
 Grids arranged in Metro way.
 
-Visual [docs](https://demching.github.io/react-metro-brick) and [demo](https://demching.github.io/react-metro-brick/demo.html)
+Visual [docs](https://demching.github.io/react-metro-brick/docs) and [demo](https://demching.github.io/react-metro-brick/docs/demo.html)
 
 ## Bricks
 ![bricks](01.png)
